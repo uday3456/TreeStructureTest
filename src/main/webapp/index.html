@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src="js/plugins/angular.min.js"></script>
+<script src="js/plugins/angular-ui-router.js"></script>
+<script src="js/plugins/jQuery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>AngularjsTestApp</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<script type="text/javascript" src="js/module/TreeStructureModule.js"></script>
+	<script type="text/javascript"
+		src="js/controller/TreeStructureController.js"></script>
+	<script type="text/javascript" src="js/service/AppService.js"></script>
+	<h3>Welcome to TreeStructureApp</h3>
+	<div class="container" ng-app="TreeStructureModule"
+		ng-controller="TreeStructureController">
+		<a type="button" class="btn btn-info" ng-click="count()">create</a>
+		<a type="button" class="btn btn-danger" ng-click="removeAll()">Remove all</a>
+		<div>
+			<table class="container">
+				<tr ng-repeat="a in array(increment) track by $index">
+					<td>
+						<div class="container" ng-if="clicked">
+							<button class="btn btn-secondary" ng-click="childCreation()">RootNode</button>
+							<table class="container">
+								<tr ng-repeat="b in array(childIncrement) track by $index">
+									<td>
+										<div class="container" ng-if="childClicked">
+											<input type="text" placeholder="enter element name">
+											<input type="text" placeholder="enter element type">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<ui-view></ui-view>
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+<div>
+	<button class="btn btn-secondary" ui-sref="treeChild" ng-click="childCount()">Children</button>
+	<div>
+		<table>
+			<tr ng-repeat="a in array(childIncrement) track by $index">
+				<td><svg width="30" height="30">
+					<line x1="40" y1="10" x2="40" y2="30" stroke="red" />
+					<line x1="40" y1="30" x2="70" y2="30" stroke="red" />
+					</svg></td>
+				<td>
+					<div ui-view="treeChild">
+					</div>
+					<ui-view></ui-view>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
